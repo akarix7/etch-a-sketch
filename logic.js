@@ -5,3 +5,5 @@ function createGrid(gridSize){
         container.appendChild(square);
     }
 }
+
+createGrid(16);

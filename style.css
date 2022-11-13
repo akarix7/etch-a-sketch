@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    max-width: 450px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+#container div{
+    border: 3px solid #000;
+    height: 100px;
+    width: 100px;
+}
