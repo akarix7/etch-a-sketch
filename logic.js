@@ -6,7 +6,7 @@ function createGrid(gridSize){
             createDiv(Math.floor((750 - gridSize*2)/gridSize));
         }
     }
-    fillBox();
+    fillBox("000");
 }
 
 function createDiv(size){
@@ -17,19 +17,34 @@ function createDiv(size){
     container.appendChild(square);
 }
 
-function fillBox(){
+function fillBox(color){
     const cell = document.querySelectorAll(".box");
-    console.log("hey");
 
-    cell.forEach((c) => { c.addEventListener("mouseover", (e) => {
-        e.target.style.backgroundColor = "#33CC00";
+    cell.forEach((c) => {
+        c.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = `#${color}`;
     }, false)
     });
 
-    cell.forEach((c) => {c.addEventListener("mouseout", (e) => {
-        e.target.style.backgroundColor = "#33CC00";
+    cell.forEach((c) => {
+        c.addEventListener("mouseout", (e) => {
+        e.target.style.backgroundColor = `#${color}`;
     }, false)
     });
 }
 
+function colorChooser(){
+    const buttons = document.querySelectorAll(".btn");
+    // const black = document.querySelector("#black");
+    // const clear = document.querySelector("#clear");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            fillBox(`${button.id}`);
+        })
+    })
+
+}
+
 createGrid(16);
+colorChooser();

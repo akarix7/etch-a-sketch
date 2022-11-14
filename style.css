@@ -15,3 +15,8 @@ body{
 #container div{
     border: 1px solid #000;
 }
+
+#control{
+    margin: 0 auto;
+    text-align: center;
+}
