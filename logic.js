@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+window.addEventListener("load", startup, false);
 
 function createGrid(gridSize){
     for(let i = 0; i < gridSize; i++){
@@ -19,6 +20,9 @@ function createDiv(size){
 
 function fillBox(color){
     const cell = document.querySelectorAll(".box");
+    if(color.includes("#")) {
+        color = color.slice(1);
+    }
 
     cell.forEach((c) => {
         c.addEventListener("mouseover", (e) => {
@@ -33,10 +37,12 @@ function fillBox(color){
     });
 }
 
-function colorChooser(){
+
+function startup(){
     const buttons = document.querySelectorAll(".btn");
-    // const black = document.querySelector("#black");
-    // const clear = document.querySelector("#clear");
+    const colorWell = document.querySelector("#colorWell");
+
+    createGrid(16);
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -44,7 +50,7 @@ function colorChooser(){
         })
     })
 
+    colorWell.addEventListener("input", (e) => {
+        fillBox(`${e.target.value}`);
+    })
 }
-
-createGrid(16);
-colorChooser();
