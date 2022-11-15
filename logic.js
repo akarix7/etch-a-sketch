@@ -1,6 +1,5 @@
 const container = document.querySelector("#container");
 window.addEventListener("load", startup, false);
-// const cell = document.querySelectorAll(".box");
 
 function createGrid(gridSize){
     for(let i = 0; i < gridSize; i++){
@@ -14,9 +13,7 @@ function createGrid(gridSize){
 function destroyGrid(){
     const cell = document.querySelectorAll(".box");
 
-    console.log("hey " + cell.length);
     cell.forEach((c) => {
-        console.log("WHY");
         c.remove();
     })
 }
@@ -89,6 +86,5 @@ function startup(){
             destroyGrid();
 
         createGrid(newValue);
-        //createGrid(16 || `${e.target.value}`)
     })
 }
