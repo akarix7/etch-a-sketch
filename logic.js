@@ -20,9 +20,9 @@ function createDiv(size){
 
 function fillBox(color){
     const cell = document.querySelectorAll(".box");
-    if(color.includes("#")) {
+    if(color.includes("#"))
         color = color.slice(1);
-    }
+
 
     cell.forEach((c) => {
         c.addEventListener("mouseover", (e) => {
@@ -37,12 +37,27 @@ function fillBox(color){
     });
 }
 
+function clearGrid(){
+    const cell = document.querySelectorAll(".box");
+
+    cell.forEach((c) => {
+        c.style.backgroundColor = "#FFF";
+    })
+
+}
+
 
 function startup(){
     const buttons = document.querySelectorAll(".btn");
     const colorWell = document.querySelector("#colorWell");
+    const clear = document.querySelector("#clear");
 
     createGrid(16);
+    colorWell.value = "#0033CC";
+
+    clear.addEventListener("click", () => {
+        clearGrid();
+    })
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
