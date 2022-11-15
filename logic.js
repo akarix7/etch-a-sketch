@@ -74,7 +74,7 @@ function startup(){
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            fillBox(`${button.id}`);
+            fillBox(`${button.value}`);
         })
     })
 

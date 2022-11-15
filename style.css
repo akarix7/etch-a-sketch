@@ -19,4 +19,24 @@ body{
 #control{
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    text-transform: uppercase;
+    border-radius: 7px;
+}
+
+#black{
+    background-color: #000;
+    color: #fff;
+}
+#black:hover{
+    background-color: #6b6b70;
+    color: #fff;
 }
