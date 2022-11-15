@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 window.addEventListener("load", startup, false);
+// const cell = document.querySelectorAll(".box");
 
 function createGrid(gridSize){
     for(let i = 0; i < gridSize; i++){
@@ -8,6 +9,16 @@ function createGrid(gridSize){
         }
     }
     fillBox("000");
+}
+
+function destroyGrid(){
+    const cell = document.querySelectorAll(".box");
+
+    console.log("hey " + cell.length);
+    cell.forEach((c) => {
+        console.log("WHY");
+        c.remove();
+    })
 }
 
 function createDiv(size){
@@ -20,6 +31,7 @@ function createDiv(size){
 
 function fillBox(color){
     const cell = document.querySelectorAll(".box");
+
     if(color.includes("#"))
         color = color.slice(1);
 
@@ -43,7 +55,6 @@ function clearGrid(){
     cell.forEach((c) => {
         c.style.backgroundColor = "#FFF";
     })
-
 }
 
 
@@ -51,6 +62,8 @@ function startup(){
     const buttons = document.querySelectorAll(".btn");
     const colorWell = document.querySelector("#colorWell");
     const clear = document.querySelector("#clear");
+    const gridSize = document.querySelector("#gridSize");
+    const defaultValue = document.getElementById("gridSize").value;
 
     createGrid(16);
     colorWell.value = "#0033CC";
@@ -67,5 +80,15 @@ function startup(){
 
     colorWell.addEventListener("input", (e) => {
         fillBox(`${e.target.value}`);
+    })
+
+    gridSize.addEventListener("change", () => {
+        let newValue = document.getElementById("gridSize").value;
+
+        if(defaultValue !== newValue)
+            destroyGrid();
+
+        createGrid(newValue);
+        //createGrid(16 || `${e.target.value}`)
     })
 }
